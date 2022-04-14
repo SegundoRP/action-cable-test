@@ -3,11 +3,10 @@ import consumer from "../channels/consumer"
 
 export default class extends Controller {
   connect() {
-     consumer.subscriptions.create(
+    consumer.subscriptions.create(
       "ChatroomChannel",
-      { received: (data) => console.log(data) }
+      { received: (data) => this.element.insertAdjacentHTML('beforeend', data) }
       )
-    console.log("bye")
   }
 }
 // { this.element.insertAdjacentHTML('beforeend', message) }
